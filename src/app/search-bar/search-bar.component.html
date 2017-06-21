@@ -4,7 +4,7 @@
   <div class="col-sm-6">
     <div class="input-group">
       <input type="text" class="form-control" placeholder="Location" aria-describedby="basic-addon1"
-          [(ngModel)]="query.search" [ngModelOptions]="{standalone: true}"/>
+          [(ngModel)]="query.search" (keypress)="sendQuery(query.search)"/>
       <span class="input-group-addon" id="sizing-addon1"><i class="material-icons">gps_fixed</i></span>
     </div>
   </div>

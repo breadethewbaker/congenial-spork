@@ -5,7 +5,8 @@
       <h1>Find an event in your area.</h1>
     </div>
   </div>
-  <app-search-bar></app-search-bar>
+  <app-search-bar (sendQuery)="sendQuery($event)"></app-search-bar>
   <br><br><br>
   <app-event-display></app-event-display>
+  <h3>{{query.search}}</h3>
 </div>
