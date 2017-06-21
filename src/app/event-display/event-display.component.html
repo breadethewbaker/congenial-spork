@@ -1,0 +1,10 @@
+<div class="row" *ngFor="let eventList of eventLists">
+  <div class="col-sm-3"></div>
+    <span *ngFor="let event of eventList" class="col-sm-2">
+      <a class="thumbnail" href="http://localhost:4200/">
+        <img src="http://www.vtzlawblog.com/uploads/image/cat&apos;s%20paw.jpg">
+        <div class="caption"><p>{{event.name}}</p></div>
+      </a>
+    </span>
+  <div class="col-sm-3"></div>
+</div>
