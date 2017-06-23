@@ -1,3 +1,9 @@
+.container-fluid {
+  /*background-color: blue;*/
+}
 h1 {
   text-align: center;
+}
+.nav-text {
+  text-align: right;
 }

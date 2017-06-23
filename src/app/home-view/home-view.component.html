@@ -8,4 +8,11 @@
   <app-search-bar (sendQuery)="sendQuery($event)"></app-search-bar>
   <br><br><br>
   <app-event-display [query]="query"></app-event-display>
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6 nav-text">
+      <h3>Or add your own event <a routerLink="/add-event"><button type="button" class="btn btn-primary">here.</button></a></h3>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
 </div>

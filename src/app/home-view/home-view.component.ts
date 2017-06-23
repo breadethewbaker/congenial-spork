@@ -12,7 +12,7 @@ export class HomeViewComponent implements OnInit {
   query: SearchQuery;
 
   constructor() {
-    this.query = { search: '' }
+    this.query = { search: '' };
   }
 
   ngOnInit() {}
