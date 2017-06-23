@@ -7,6 +7,5 @@
   </div>
   <app-search-bar (sendQuery)="sendQuery($event)"></app-search-bar>
   <br><br><br>
-  <app-event-display></app-event-display>
-  <h3>{{query.search}}</h3>
+  <app-event-display [query]="query"></app-event-display>
 </div>

@@ -11,7 +11,7 @@ import { SearchQuery } from '../search-query';
 })
 export class SearchBarComponent implements OnInit {
 
-  @Output() queryEmitter = new EventEmitter<string>();
+  @Output() sendQuery = new EventEmitter<string>();
   query: SearchQuery;
 
   constructor(private eventService: EventService) {
@@ -20,8 +20,8 @@ export class SearchBarComponent implements OnInit {
 
   ngOnInit() {}
 
-  sendQuery(search: string) {
-    this.queryEmitter.emit(search);
+  emitQuery(search: string) {
+    this.sendQuery.emit(search);
   }
 
 }
