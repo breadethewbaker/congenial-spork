@@ -4,6 +4,9 @@ const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
 
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
 // Get our API routes
 const api = require('./server/routes/api');
 
@@ -19,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 // Set our api routes
 app.use('/api', api);
 
-// Catch all other routes and return the index file
+// Catch all routes and return the index file
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
