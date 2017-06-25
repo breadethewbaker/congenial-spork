@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
+
 import { Event } from './event';
 
 @Injectable()
 export class EventService {
 
-  constructor() {}
+  constructor( private http: Http ) {}
 
   getPopEvents(): Promise<Event[][]> {
     return Promise.resolve(POPEVENTS);
