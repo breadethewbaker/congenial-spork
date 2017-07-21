@@ -1,28 +1,44 @@
 import { Injectable } from '@angular/core';
 
-import { Http } from '@angular/http';
+import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 import { Event } from './event';
 
 @Injectable()
 export class EventService {
 
+  private eventsUrl = 'api/events';
+  private popEventsUrl = 'api/popEvents';
+  private headers = new Headers({'Content-Type': 'application/json'});
+
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error); // for demo purposes only
+    return Promise.reject(error.message || error);
+  }
+
   constructor( private http: Http ) {}
+
+  create(name: string): Promise<Event> {
+    return this.http
+      .post(this.eventsUrl, JSON.stringify({name: name}), {headers: this.headers})
+      .toPromise()
+      .then(res => res.json().data as Event)
+      .catch(this.handleError);
+  }
+
+  getEvents(): Promise<Event[]> {
+    return this.http
+      .get(this.eventsUrl)
+      .toPromise()
+      .then(response => response.json().data as Event[])
+      .catch(this.handleError);
+  }
 
   getPopEvents(): Promise<Event[][]> {
     return Promise.resolve(POPEVENTS);
   }
-  queryEvents(str: string): Promise<Event[]> {
-    var retVal:Event[];
-    for (var i=0;i<EVENTS.length;i++) {
-      if (EVENTS[i].name.includes(str)) {
-        retVal.push(EVENTS[i]);
-      }
-    }
-    return Promise.resolve(retVal);
-  }
-
 }
 
 export const EVENTS: Event[] = [

@@ -13,6 +13,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { EventService } from './event.service';
 import { HomeViewComponent } from './home-view/home-view.component';
 import { AddEventComponent } from './add-event/add-event.component';
+import { EventListComponent } from './event-list/event-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AddEventComponent } from './add-event/add-event.component';
     EventDisplayComponent,
     SearchBarComponent,
     HomeViewComponent,
-    AddEventComponent
+    AddEventComponent,
+    EventListComponent
   ],
   imports: [
     BrowserModule,

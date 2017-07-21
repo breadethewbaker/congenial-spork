@@ -22,7 +22,8 @@
           <label for="eventVenue">Event Venue</label>
           <input type="text" class="form-control" id="eventVenue"/>
         </div>
-        <a routerLink="/"><button type="submit" class="btn btn-primary">Submit</button></a>
+        <a routerLink="/"><button type="submit" class="btn btn-primary" (click)="add(eventName.value)">
+          Submit</button></a>
       </div>
       <div class="col-sm-4"></div>
     </div>
