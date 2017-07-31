@@ -10,7 +10,7 @@ import { Event } from '../event';
 })
 export class EventListComponent implements OnInit {
 
-  eventList: Event[] = [];
+  eventList: Event[];
 
   constructor( private eventService: EventService ) { }
 
@@ -19,6 +19,7 @@ export class EventListComponent implements OnInit {
   }
 
   fillEventList(): void {
+    this.eventList =[];
     this.eventService.getEvents()
       .then( res => this.eventList = res);
   }

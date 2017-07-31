@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 // create a schema
 const eventSchema = new Schema({
   name: { type: String, required: true, unique: true },
-  venue: { type: String, required: true },
+  venue: { type: String, /* required: true */ },
   /*location: { type: String, required: true },
   date: { type: Date, required: true },
   verified: Boolean,
@@ -17,14 +17,13 @@ const eventSchema = new Schema({
 });
 
 eventSchema.methods.dudify = function() {
-  // add some stuff to the users name
-  this.name = this.name + '-dude';
+  // do nothing
 
-  return this.name;
+  return;
 };
 
 // on every save, add the date
-userSchema.pre('save', (next) => {
+eventSchema.pre('save', (next) => {
   // get the current date
   let currentDate = new Date();
 
@@ -32,7 +31,7 @@ userSchema.pre('save', (next) => {
   this.update_at = currentDate;
 
   // if created_at doesn't exist, add to that field
-  !this.created_at ? this.created_at = currentDate;
+  if (!this.created_at) { this.created_at = currentDate; }
 
   next();
 })
